@@ -28,4 +28,6 @@ app.get("/", (req, res) => {
 });
 app.use("/product", productRoutes);
 
-app.listen(port, () => console.log(`Server running on port ${port}`));
+
+module.exports = app.listen(port, () => console.log(`Server running on port ${port}`));
+
