@@ -1,26 +1,34 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Container, AppBar, Toolbar, Typography, Button } from '@mui/material';
+import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
+import ProductList from './components/ProductList';
+import ProductForm from './components/ProductForm';
 
-function App() {
+const App: React.FC = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <AppBar position="static">
+        <Toolbar>
+          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+            Product Management
+          </Typography>
+          <Button color="inherit" component={Link} to="/">
+            Product List
+          </Button>
+          <Button color="inherit" component={Link} to="/add">
+            Add Product
+          </Button>
+        </Toolbar>
+      </AppBar>
+      <Container>
+        <Routes>
+          <Route path="/" element={<ProductList />} />
+          <Route path="/add" element={<ProductForm />} />
+          <Route path="/edit/:id" element={<ProductForm />} />
+        </Routes>
+      </Container>
+    </Router>
   );
-}
+};
 
 export default App;
