@@ -1,12 +1,13 @@
-import React from 'react';
-import { Container, AppBar, Toolbar, Typography, Button } from '@mui/material';
-import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
-import ProductList from './components/ProductList';
-import ProductForm from './components/ProductForm';
+import React from "react";
+import { Container, AppBar, Toolbar, Typography, Button } from "@mui/material";
+import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
+import ProductList from "./components/ProductList";
+import ProductForm from "./components/ProductForm";
 
 const App: React.FC = () => {
   return (
     <Router>
+      {/* Add appbar with two buttons to product list and add product */}
       <AppBar position="static">
         <Toolbar>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
@@ -21,6 +22,7 @@ const App: React.FC = () => {
         </Toolbar>
       </AppBar>
       <Container>
+        {/* Routes to the components */}
         <Routes>
           <Route path="/" element={<ProductList />} />
           <Route path="/add" element={<ProductForm />} />

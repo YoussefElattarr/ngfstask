@@ -1,64 +1,76 @@
 import axios from "axios";
 
-const API_URL = "http://localhost:3000/product";
+// url to the backend
+const API_URL = "http://localhost:3001/product";
 
-// export const getProducts = async (params: any) => {
-//   const response = await axios.get(API_URL, { params });
-//   return response.data;
-// };
-
+// Get the products with filters
 export const getProducts = async (queryParams: any) => {
   try {
     const response = await axios.get(API_URL + `?${queryParams}`);
-    return response.data;
+    if (response.status === 200) return response.data;
+    else throw new Error(`Error fetching products: ${response.data.error})`);
   } catch (error) {
     console.error("Error fetching products:", error);
-    // Handle the error here (e.g., display an error message to the user)
-    throw error; // Re-throw the error for handling in useEffect
+    throw error;
   }
 };
 
+// Get a single product
 export const getProduct = async (id: string) => {
   try {
     const response = await axios.get(`${API_URL}/${id}`);
-    return response.data;
+    if (response.status === 200) return response.data;
+    else throw new Error(`Error fetching products: ${response.data.error})`);
   } catch (error) {
     console.error("Error fetching product:", error);
-    // Handle the error here (e.g., display an error message to the user)
-    throw error; // Re-throw the error for handling in useEffect
+    throw error;
   }
 };
 
+// Create a product
 export const createProduct = async (product: any) => {
   try {
     const response = await axios.post(API_URL, product);
-    return response.data;
+    if (response.status === 201) return response.data;
+    else
+      throw new Error(
+        `Error fetching products: ${
+          response.data.errors ? response.data.errors : response.data.error
+        })`
+      );
   } catch (error) {
     {
       console.error("Error creating the product:", error);
-      // Handle the error here (e.g., display an error message to the user)
-      throw error; // Re-throw the error for handling in useEffect
+      throw error;
     }
   }
 };
 
+// Update a product
 export const updateProduct = async (id: string, product: any) => {
   try {
     const response = await axios.put(`${API_URL}/${id}`, product);
-    return response.data;
+    if (response.status === 200) return response.data;
+    else
+      throw new Error(
+        `Error fetching products: ${
+          response.data.errors ? response.data.errors : response.data.error
+        })`
+      );
   } catch (error) {
     console.error("Error creating the product:", error);
-    // Handle the error here (e.g., display an error message to the user)
-    throw error; // Re-throw the error for handling in useEffect
+    throw error;
   }
 };
 
+// Delete a product
 export const deleteProduct = async (id: string) => {
   try {
-    await axios.delete(`${API_URL}/${id}`);
+    const response = await axios.delete(`${API_URL}/${id}`);
+    if (response.status === 200) return response.data;
+    else throw new Error(`Error fetching products: ${response.data.error})`);
   } catch (error) {
     console.error("Error deleting the product:", error);
-    // Handle the error here (e.g., display an error message to the user)
-    throw error; // Re-throw the error for handling in useEffect
+    throw error;
   }
 };

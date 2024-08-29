@@ -8,61 +8,61 @@ const initialProducts = [
     productName: 'Laptop',
     category: 'Electronics',
     price: 999.99,
-    availabilityDate: new Date('2024-09-01')
+    availabilityDate: new Date('2024-10-01')
   },
   {
     productName: 'Smartphone',
     category: 'Electronics',
     price: 699.99,
-    availabilityDate: new Date('2024-09-10')
+    availabilityDate: new Date('2024-10-10')
   },
   {
     productName: 'Coffee Maker',
     category: 'Appliances',
     price: 89.99,
-    availabilityDate: new Date('2024-09-15')
+    availabilityDate: new Date('2024-10-15')
   },
   {
     productName: 'Desk Chair',
     category: 'Furniture',
     price: 149.99,
-    availabilityDate: new Date('2024-09-20')
+    availabilityDate: new Date('2024-10-20')
   },
   {
     productName: 'Headphones',
     category: 'Electronics',
     price: 199.99,
-    availabilityDate: new Date('2024-10-01')
+    availabilityDate: new Date('2024-11-01')
   },
   {
     productName: 'Blender',
     category: 'Appliances',
     price: 49.99,
-    availabilityDate: new Date('2024-10-05')
+    availabilityDate: new Date('2024-11-05')
   },
   {
     productName: 'Table Lamp',
     category: 'Furniture',
     price: 39.99,
-    availabilityDate: new Date('2024-10-10')
+    availabilityDate: new Date('2024-11-10')
   },
   {
     productName: '4K TV',
     category: 'Electronics',
     price: 1299.99,
-    availabilityDate: new Date('2024-11-01')
+    availabilityDate: new Date('2024-12-01')
   },
   {
     productName: 'Washing Machine',
     category: 'Appliances',
     price: 499.99,
-    availabilityDate: new Date('2024-11-10')
+    availabilityDate: new Date('2024-12-10')
   },
   {
     productName: 'Sofa',
     category: 'Furniture',
     price: 799.99,
-    availabilityDate: new Date('2024-11-15')
+    availabilityDate: new Date('2024-12-15')
   },
   {
     productName: 'Air Purifier',
