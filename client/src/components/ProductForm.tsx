@@ -22,6 +22,7 @@ import categories from "../predefinedData/categories";
 
 const ProductForm: React.FC = () => {
   const [product, setProduct] = useState<Product>({
+    _id: "",
     productName: "",
     category: "",
     price: 0,
@@ -85,7 +86,7 @@ const ProductForm: React.FC = () => {
         setAlertMessage(`Error updating product:${error}`);
       }
     }
-    // If creating 
+    // If creating
     else {
       try {
         const response = await createProduct(product);
@@ -137,24 +138,29 @@ const ProductForm: React.FC = () => {
       </Typography>
       {/* Form for editing and creating a product */}
       <Box component="form" onSubmit={handleSubmit} sx={{ mt: 3 }}>
+      {false &&<InputLabel htmlFor="productName">Product Name</InputLabel>}
         <TextField
           label="Product Name"
           name="productName"
+          id="productName"
           value={product.productName}
           onChange={handleChange}
           fullWidth
           required
           sx={{ mb: 2 }}
-          slotProps={{ htmlInput: { minLength: 3 , maxLength:100} }}
+          slotProps={{ htmlInput: { minLength: 3, maxLength: 100 } }}
         />
-         {/* Category is a select field using the predefined categories */}
-        <FormControl fullWidth>
-          <InputLabel id="category-label">Category</InputLabel>
+        {/* Category is a select field using the predefined categories */}
+        <FormControl fullWidth aria-label="Category" id="category">
+          <InputLabel htmlFor="category">Category</InputLabel>
           <Select
             required
             fullWidth
+            name="category"
+            id="category"
             label="Category"
-            labelId="category-label"
+            labelId="category"
+            // native={true}
             value={product.category}
             sx={{ mb: 2 }}
             onChange={handleCategoryChange}
@@ -166,10 +172,13 @@ const ProductForm: React.FC = () => {
             ))}
           </Select>
         </FormControl>
+       { false &&<InputLabel htmlFor="price">Price</InputLabel>}
         <TextField
           label="Price"
           type="number"
           name="price"
+          id="price"
+          data-testid="price"
           value={product.price}
           // If the value is not set, default to empty
           defaultValue={product.price ? product.price : ""}
@@ -179,10 +188,13 @@ const ProductForm: React.FC = () => {
           slotProps={{ htmlInput: { min: 0 } }}
           sx={{ mb: 2 }}
         />
+        {false && <InputLabel htmlFor="availabilityDate">Availability Date</InputLabel>}
         <TextField
           label="Availability Date"
           type="date"
           name="availabilityDate"
+          id="availabilityDate"
+          data-testid="availabilityDate"
           // If the value is not set, default to current date
           value={
             product.availabilityDate
@@ -196,7 +208,7 @@ const ProductForm: React.FC = () => {
         />
         <Button type="submit" variant="contained" color="primary" fullWidth>
           {/* If editing, label it update, else add */}
-          {isEditing ? "Update" : "Add"} 
+          {isEditing ? "Update" : "Add"}
         </Button>
       </Box>
     </Container>
