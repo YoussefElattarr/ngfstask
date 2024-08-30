@@ -82,22 +82,6 @@ describe("ProductList Component", () => {
     });
   });
 
-  test("renders no products message when no products found", async () => {
-    // Mock the getProducts API to return an empty list
-    (getProducts as jest.Mock).mockResolvedValue({ products: [], total: 0 });
-
-    render(
-      <BrowserRouter>
-        <ProductList />
-      </BrowserRouter>
-    );
-
-    // Wait for the "No products found" message
-    await waitFor(() => {
-      expect(screen.getByText("No products found")).toBeInTheDocument();
-    });
-  });
-
   test("edit button takes you to edit page", async () => {
     // const mockNavigate = useNavigate as jest.Mock;
 
@@ -119,23 +103,6 @@ describe("ProductList Component", () => {
     // Assert that useNavigate was called with the expected path
     expect(mockedNavigate).toHaveBeenCalledWith("/edit/1");
   });
-
-//   test("add product button takes you to add page", async () => {
-//     // const mockNavigate = useNavigate as jest.Mock;
-
-//     render(
-//       <BrowserRouter>
-//         <ProductList />
-//       </BrowserRouter>
-//     );
-
-//     // Click Add Product button from Appbar
-//     const addButton = screen.getByText("Add Product");
-//     fireEvent.click(addButton);
-
-//     // Assert that useNavigate was called with the expected path
-//     expect(mockedNavigate).toHaveBeenCalledWith("/add");
-//   });
 
   test("renders no products message when no products found", async () => {
     // Mock the getProducts API to return an empty list
