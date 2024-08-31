@@ -78,6 +78,7 @@ Ensure you have the following installed:
     ```bash
     cd ..
     cd client
+    cd src
     ```
 
 2. **Start the Frontend Application**
