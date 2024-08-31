@@ -22,7 +22,6 @@ import categories from "../predefinedData/categories";
 
 const ProductForm: React.FC = () => {
   const [product, setProduct] = useState<Product>({
-    _id: "",
     productName: "",
     category: "",
     price: 0,
@@ -160,7 +159,6 @@ const ProductForm: React.FC = () => {
             id="category"
             label="Category"
             labelId="category"
-            // native={true}
             value={product.category}
             sx={{ mb: 2 }}
             onChange={handleCategoryChange}
@@ -185,7 +183,7 @@ const ProductForm: React.FC = () => {
           onChange={handleChange}
           fullWidth
           required
-          slotProps={{ htmlInput: { min: 0 } }}
+          slotProps={{ htmlInput: { min: 0 , step:"any"} }}
           sx={{ mb: 2 }}
         />
         {false && <InputLabel htmlFor="availabilityDate">Availability Date</InputLabel>}
