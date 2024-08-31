@@ -41,7 +41,7 @@ Ensure you have the following installed:
     ```bash
     cd ..
     cd client
-    npm install
+    npm install --legacy-peer-deps
     ```
 
 ## Running the Backend
