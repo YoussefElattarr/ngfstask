@@ -41,7 +41,7 @@ Ensure you have the following installed:
     ```bash
     cd ..
     cd client
-    npm install
+    npm install --legacy-peer-deps
     ```
 
 ## Running the Backend
@@ -78,6 +78,7 @@ Ensure you have the following installed:
     ```bash
     cd ..
     cd client
+    cd src
     ```
 
 2. **Start the Frontend Application**
@@ -89,6 +90,8 @@ Ensure you have the following installed:
     The frontend will be available at `http://localhost:3000`.
 
 ## Running Unit Tests
+
+**Make sure to terminate any running code**
 
 1. **Navigate to the Backend Directory**
 
