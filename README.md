@@ -91,6 +91,8 @@ Ensure you have the following installed:
 
 ## Running Unit Tests
 
+**Make sure to terminate any running code**
+
 1. **Navigate to the Backend Directory**
 
     ```bash
